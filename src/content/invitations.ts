@@ -8,6 +8,8 @@ export interface InvitationLink {
 export interface InvitationLocation {
   name: string;
   address?: string;
+  details?: string;
+  addTopBreak?: boolean;
 }
 
 export interface TimelineEvent {
@@ -75,18 +77,12 @@ const sharedInvitation = {
       'Если вы ещё не определились с подарком, мы будем рады, если он будет в виде конверта. Так вы поможете нам осуществить наши совместные желания и мечты, которые мы с удовольствием воплотим в жизнь вместе.',
     farewell: 'До встречи! С любовью,',
   },
-  links: {
-    vkChat: {
-      label: 'Нажмите сюда',
-      url: 'https://vk.me/join/XwVtHoU5a7At3X9FnhGCzDwUxcrtkAcdfPc=',
-    },
-  },
   sections: {
     dressCode: true,
     gifts: true,
     vkChat: true,
   },
-} satisfies Omit<InvitationConfig, 'audience' | 'path' | 'timeline'>;
+} satisfies Omit<InvitationConfig, 'audience' | 'path' | 'timeline' | 'links'>;
 
 const relativesTimeline = [
   {
@@ -95,6 +91,7 @@ const relativesTimeline = [
     location: {
       name: 'Дворец бракосочетания',
       address: 'улица Малыгина, 85',
+      addTopBreak: true,
     },
   },
   {
@@ -117,11 +114,40 @@ const relativesTimeline = [
   },
 ] satisfies readonly TimelineEvent[];
 
-// Replace with the friends schedule once its final times and locations are known.
-const friendsTimeline = relativesTimeline.map((event) => ({
-  ...event,
-  location: event.location ? { ...event.location } : undefined,
-}));
+const friendsTimeline = [
+  {
+    title: 'Сбор гостей',
+    time: '11:30',
+    location: {
+      name: 'Дворец бракосочетания',
+      address: 'улица Малыгина, 85',
+    },
+  },
+  {
+    title: 'Церемония',
+    time: '12:00',
+    description: '2 этаж, Янтарный зал',
+  },
+  {
+    title: 'Препати',
+    time: '13:00',
+    location: {
+      name: 'Наш  дом',
+      address: 'Салтыкова-Щедрина 32, кв 11',
+    },
+  },
+  {
+    title: 'Коттедж',
+    time: '15:00',
+    location: {
+      name: "с. Кулига",
+      address: 'Улица Транспортная 18В.',
+      details: 'О трансфере мы позаботимся сами – с вас: полотенца, купальники и тапочки',
+      addTopBreak: true,
+    },
+    description: '',
+  },
+] satisfies readonly TimelineEvent[];
 
 export const invitations = {
   relatives: {
@@ -129,11 +155,23 @@ export const invitations = {
     audience: 'relatives',
     path: '/relatives',
     timeline: relativesTimeline,
+    links: {
+      vkChat: {
+        label: 'Нажмите сюда',
+        url: 'https://vk.me/join/XwVtHoU5a7At3X9FnhGCzDwUxcrtkAcdfPc=',
+      },
+    },
   },
   friends: {
     ...sharedInvitation,
     audience: 'friends',
     path: '/friends',
     timeline: friendsTimeline,
+    links: {
+      vkChat: {
+        label: 'Нажмите сюда',
+        url: 'https://vk.me/join/B36HuMyT/EGeXtsdMHCWS68ReWh9P3M3dZk=',
+      },
+    },
   },
 } satisfies Record<InvitationAudience, InvitationConfig>;

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import dressBeige from '../assets/images/dress-beige.webp';
-import dressBlack from '../assets/images/dress-black.webp';
+import dressBlack from '../assets/images/Obraz_2.png';
 import dressBrown from '../assets/images/dress-brown.webp';
 import dressBurgundy from '../assets/images/dress-burgundy.webp';
 import dressCream from '../assets/images/dress-cream.webp';

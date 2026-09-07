@@ -14,7 +14,6 @@ export default function WeddingDetails({
 }) {
   const dialogRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const audienceLabel = invitation.audience === 'relatives' ? 'родственники' : 'друзья';
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -96,11 +95,12 @@ export default function WeddingDetails({
       transition={{ duration: shouldReduceMotion ? 0.15 : 0.55, ease: [0.22, 1, 0.36, 1] }}
     >
       <header className="wedding-details__header">
-        <h2 id="details-title" className="visually-hidden">Детали свадьбы</h2>
         <button type="button" onClick={onClose} aria-label="Закрыть детали свадьбы">
-          <span className="close-label close-label--mobile">{audienceLabel}</span>
+          <span className="close-label close-label--mobile" aria-hidden="true">×</span>
           <span className="close-label close-label--desktop">Закрыть</span>
         </button>
+        <h2 id="details-title" className="visually-hidden">Детали свадьбы</h2>
+
       </header>
       <EventTimeline events={invitation.timeline} />
       {invitation.sections.dressCode && (

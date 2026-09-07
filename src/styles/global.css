@@ -470,6 +470,16 @@ img {
   font-size: 0.6rem;
 }
 
+.close-label--mobile {
+  color: var(--color-wine);
+  font-size: 1.75rem;
+  line-height: 1;
+  text-decoration: none;
+  position: absolute;
+  top: -30px;
+  right: 20px;
+}
+
 .section-title {
   position: relative;
   height: 13.184cqw;
@@ -595,7 +605,7 @@ img {
   margin: 0;
   font-size: 2.736cqw;
   line-height: 1.18;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .event-timeline p strong {

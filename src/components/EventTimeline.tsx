@@ -34,8 +34,10 @@ export default function EventTimeline({ events }: { events: readonly TimelineEve
               <h3>{event.title}</h3>
               {event.location && (
                 <p>
+                  {event.location.addTopBreak && <br />}
                   <strong>{event.location.name}</strong>
                   {event.location.address && <> — {event.location.address}</>}
+                  {event.location.details && <><br />{event.location.details}</>}
                 </p>
               )}
               {event.description && <p>{event.description}</p>}
