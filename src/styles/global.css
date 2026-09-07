@@ -518,6 +518,10 @@ img {
   height: 204.229cqw;
 }
 
+.event-timeline--extended {
+  height: 216.229cqw;
+}
+
 .event-timeline .section-title {
   position: absolute;
   z-index: 2;

@@ -4,9 +4,13 @@ import type { TimelineEvent } from '../content/invitations';
 
 export default function EventTimeline({ events }: { events: readonly TimelineEvent[] }) {
   const shouldReduceMotion = useReducedMotion();
+  const hasExtendedLastEvent = Boolean(events.at(-1)?.location?.details);
 
   return (
-    <section className="event-timeline" aria-labelledby="timeline-title">
+    <section
+      className={`event-timeline${hasExtendedLastEvent ? ' event-timeline--extended' : ''}`}
+      aria-labelledby="timeline-title"
+    >
       <h2 id="timeline-title" className="section-title">
         <span>План</span>{' '}<b>мероприятий</b>
       </h2>
