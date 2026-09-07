@@ -37,14 +37,14 @@ export default function HeroStory({
 
   return (
     <section className="hero-story" aria-labelledby="story-title">
-      <div className="ribbon" aria-label="Вы приглашены на свадьбу">
+      <div className="ribbon" aria-label="Вы приглашены на свадьбу 10.10">
         <span className="ribbon__mobile" aria-hidden="true">
-          Вы приглашены на свадьбу · Вы приглашены на свадьбу · Вы приглашены на свадьбу ·&nbsp;
+          Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 ·&nbsp;
         </span>
         <span className="ribbon__desktop" aria-hidden="true">
-          Вы приглашены на свадьбу · Вы приглашены на свадьбу · Вы приглашены на свадьбу ·
-          Вы приглашены на свадьбу · Вы приглашены на свадьбу · Вы приглашены на свадьбу ·
-          Вы приглашены на свадьбу · Вы приглашены на свадьбу · Вы приглашены на свадьбу ·&nbsp;
+          Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 ·
+          Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 ·
+          Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 · Вы приглашены на свадьбу 10.10 ·&nbsp;
         </span>
       </div>
       <div className="hero-story__collage" ref={collageRef}>
@@ -71,7 +71,7 @@ export default function HeroStory({
           <img src={signInvitation} {...imageSize} alt="" />
           <div className="story-sign__copy">
             <h2 id="story-title">Приглашаем вас на свадьбу</h2>
-            <p>{invitation.copy.invitation}</p>
+            <p style={{fontSize: 14}}>{invitation.copy.invitation}</p>
           </div>
         </motion.div>
         <motion.img
